@@ -16,29 +16,30 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 </style>
-    <table class="table table-striped">
-        <thead>
-            <tr bgcolor="red">
-                <th class="col-md-1">No</th>
-                <th class="col-md-4">Name</th>
-                <th class="col-md-4">Email</th>
-                <th class="col-md-2">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <td>1</td>
-            <td>wew</td>
-            <td>wew</td>
-            <td>
-                <button type="button" class="btn-success">
-                    <i class="glyphicon glyphicon-search"></i>
-                </button>
-                <button type="button" class="btn-primary">
-                    <i class="glyphicon glyphicon-edit"></i>
-                </button>
-                <button type="button" class="btn-danger">
-                    <i class="glyphicon glyphicon-trash"></i>
-                </button>
+                  <table class="table table-bordered">
+				  <tr>
+				  <td>No</td>
+					<td>Nama</td>
+					<td>Email</td>
+					<td>Nik</td>
+					<td colspan="2">Action</td>
+				  
+				  </tr>
+				  @foreach ($data as $index =>$datas)
+				  <tr>
+				   <td>{{ $datas->id }}</td>
+				     <td>{{ $datas->name }}</td>
+					 <td>{{ $datas->email }}</td>
+                     <td>{{ $datas->nik }}</td>
+                     <td>
+                     @include('admin.backends.employee.form.detail')
+                     <button type="button" class="btn-primary">
+                     <i class="glyphicon glyphicon-edit"></i></button>
+                     @include('admin.backends.employee.form.delete', ['id' => $datas->id])
+
+                     </td>
+				  </tr>
+				  @endforeach
             </td>
         </tbody>
     </table>

@@ -7,6 +7,12 @@ use App\Models\Employee;
 
 class EmployeeController extends Controller
 {
+    private $model;
+    public function __construct()
+    {
+        $this->model = new Employee;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,8 +20,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        // $model = new \App\Models\Employee;
-        $data = Employee::all();
+        $data = $this->model->all();
         return view('admin.backends.employee.index',compact('data'));
     }
 
@@ -37,12 +42,12 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $this->model; 
+       $data = $this->model; 
        $data->nik = $request->nik;
        $data->name = $request->name;
        $data->email = $request->email;
        $data->save();
-       return redirect()->route('.index')->with('alert-success','Berhasil Menambahkan Data!');
+       return redirect()->route('employee.index')->with('alert-success','Berhasil Menambahkan Data!');
 
     }
 
@@ -65,7 +70,9 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = $this->model->where('id',$id)->get();
+
+        return view('admin.backends.employee.form.edit',compact('data'));
     }
 
     /**
@@ -88,8 +95,9 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        $data = Employe::where('id',$id)->first();
+        $data = $this->model->find($id);
         $data->delete();
         return redirect()->route('employee.index')->with('alert-success','Data berhasi dihapus!');
+        // return view('admin.backends.employee.index',compact('data'));
     }
 }

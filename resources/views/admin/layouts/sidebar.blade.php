@@ -26,16 +26,14 @@
             <div class="menu">
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li class="active">
-                        <a href="index.html">
+                        <a href="/home">
                             <i class="material-icons">home</i>
                             <span>Home</span>
                         </a>
-                    </li>
                     <li>
-                        <a href="pages/typography.html">
+                        <a href="/employee">
                             <i class="material-icons">text_fields</i>
-                            <span>Presensi</span>
+                            <span>Tambah Karyawan</span>
                         </a>
                     </li>
             <!-- #Menu -->

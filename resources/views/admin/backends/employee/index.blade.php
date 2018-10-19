@@ -8,6 +8,7 @@
 <div class="col-md-12">
     @include('admin.backends.employee.form.create')
     @include('admin.backends.employee.form.view')
-    @include('admin.backends.employee.form.table')
+    
+
 </div>
 @endsection

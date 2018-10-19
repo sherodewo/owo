@@ -14,10 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('employee','Employee');
+// Route::resource('employee','Employee');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-Route::get('/employee', 'EmployeeController@index');
+Route::delete('/employee/destroy/{id}', 'EmployeeController@destroy')->name('employee.destroy');
+Route::get('/employee', 'EmployeeController@index')->name('employee.index');
+Route::post('/employee/store', 'EmployeeController@store')->name('employee.store');
 
