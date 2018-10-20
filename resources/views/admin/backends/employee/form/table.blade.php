@@ -16,7 +16,7 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 </style>
-                  <table class="table table-bordered">
+                  <table class="table table-bordered datatables">
 				  <tr>
 				  <td>No</td>
 					<td>Nama</td>
@@ -27,14 +27,13 @@ tr:nth-child(even) {
 				  </tr>
 				  @foreach ($data as $index =>$datas)
 				  <tr>
-				   <td>{{ $datas->id }}</td>
+				     <td>{{ $index+1 }}</td>
 				     <td>{{ $datas->name }}</td>
 					 <td>{{ $datas->email }}</td>
                      <td>{{ $datas->nik }}</td>
                      <td>
                      @include('admin.backends.employee.form.detail')
-                     <button type="button" class="btn-primary">
-                     <i class="glyphicon glyphicon-edit"></i></button>
+                     @include('admin.backends.employee.form.edit', ['id' => $datas->id])
                      @include('admin.backends.employee.form.delete', ['id' => $datas->id])
 
                      </td>

@@ -20,6 +20,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::delete('/employee/destroy/{id}', 'EmployeeController@destroy')->name('employee.destroy');
+Route::put('/employee/update/{id}', 'EmployeeController@update')->name('employee.update');
 Route::get('/employee', 'EmployeeController@index')->name('employee.index');
 Route::post('/employee/store', 'EmployeeController@store')->name('employee.store');
 

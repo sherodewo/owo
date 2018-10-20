@@ -15,5 +15,6 @@
 
 <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
 <link href="{{ asset('themes/adminbsb/css/themes/all-themes.css') }}" rel="stylesheet" />
+<link href="{{ asset('css/datatables.net-dt/css/jquery.dataTables.min.css') }}" rel="stylesheet" />
 
 @stack('styles')

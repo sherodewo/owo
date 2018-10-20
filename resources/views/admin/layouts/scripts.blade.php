@@ -39,5 +39,6 @@
 
 <!-- Demo Js -->
 <script src="{{ asset('themes/adminbsb/js/demo.js') }}"></script>
+<script src="{{ asset('js/datatables.net/js/jquery.dataTables.min.js') }}"></script>
 
 @stack('scripts')

@@ -11,4 +11,5 @@
     
 
 </div>
+@include('admin.backends.employee.scripts')
 @endsection

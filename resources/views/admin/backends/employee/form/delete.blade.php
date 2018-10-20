@@ -1,7 +1,7 @@
-<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete"><i class="
+<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-{{$id}}"><i class="
 glyphicon glyphicon-trash"></i>
 </button>
-<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="deleteLabel">
+<div class="modal fade" id="delete-{{$id}}" tabindex="-1" role="dialog" aria-labelledby="deleteLabel">
   <div class="modal-dialog modal-md" role="document">
     <div class="modal-content">
       <div class="modal-header">

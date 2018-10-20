@@ -42,12 +42,23 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-       $data = $this->model; 
-       $data->nik = $request->nik;
-       $data->name = $request->name;
-       $data->email = $request->email;
-       $data->save();
+            $validator = \Validator::make($request->all(), [
+                'nik' => 'required',
+                'name' => 'required',
+                'email' => 'required',
+            ]);
+            
+            if ($validator->fails())
+            {
+                return response()->json(['errors'=>$validator->errors()->all()]);
+            }
+            $data= $this->model;
+            $data->nik=$request->get('nik');
+            $data->name=$request->get('name');
+            $data->email=$request->get('email');
+            $data->save();
        return redirect()->route('employee.index')->with('alert-success','Berhasil Menambahkan Data!');
+
 
     }
 
@@ -84,7 +95,12 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $this->model->where('id',$id)->first();
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->nik = $request->nik;
+        $data->save();
+        return redirect()->route('employee.index')->with('alert-success','Data berhasil diubah!');
     }
 
     /**
