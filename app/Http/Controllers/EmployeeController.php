@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Employee;
+use Yajra\Datatables\Datatables;
 
 class EmployeeController extends Controller
 {
@@ -12,6 +13,11 @@ class EmployeeController extends Controller
     {
         $this->model = new Employee;
     }
+    public function datatables()
+  {
+    $data = numrows($this->model->get());
+    return Datatables::of($data);
+}
 
     /**
      * Display a listing of the resource.
@@ -81,7 +87,7 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        $data = $this->model->where('id',$id)->get();
+        $data = $this->model->find($id);
 
         return view('admin.backends.employee.form.edit',compact('data'));
     }

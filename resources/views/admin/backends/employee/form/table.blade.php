@@ -16,7 +16,7 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 </style>
-                  <table class="table table-bordered datatables">
+                  <table class="table table-bordered datatables" id="datatables">
 				  <tr>
 				  <td>No</td>
 					<td>Nama</td>

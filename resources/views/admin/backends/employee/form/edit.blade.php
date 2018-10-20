@@ -9,11 +9,10 @@ glyphicon glyphicon-edit"></i>
         <h4 class="modal-title text-center" id="editLabel">Edit Confirmation</h4>
       </div>
 <div class="container-fluid">
-      @foreach($data as $datas)
             <form action="{{ route('employee.update', $id) }}" method="post">
                 {{ csrf_field() }}
                 {{ method_field('PUT') }}
-                <div class="table-bordered" style="background:antiquewhite">
+                <div class="table-bordered" style="background:">
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" class="form-control" id="usr" name="name" value="{{ $datas->name }}">
@@ -32,7 +31,6 @@ glyphicon glyphicon-edit"></i>
                 </div>
                 </div>
             </form>
-            @endforeach
 </div>
 
     </div>
